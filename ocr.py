@@ -17,6 +17,11 @@ __MODEL_KEYS__ = {'ingredients':
                     {'model_id': 'b80ebaba-f790-4b20-912c-6e5f4f5c1cac', 
                     'api_key': '3CAHKciTzzvTkrbwhx01RYxbBq4aLDkz', 
                     'path_to_label_map': 'gs://wizyvision-automl/wizyocr/ingredients/ingredients_label_map.pbtxt'
+                    },
+                  'digits': 
+                    {'model_id': '5e548aea-34e1-4b52-b90f-338023830cb1', 
+                    'api_key': '3CAHKciTzzvTkrbwhx01RYxbBq4aLDkz', 
+                    'path_to_label_map': 'gs://wizyvision-automl/wizyocr/digits/label_map.pbtxt'
                     }
 }
 
