@@ -80,23 +80,26 @@ class WizyOCR(object):
 
     def predict(self, image_path):
         self.get_image(image_path)
-        self.get_response()
-        self.get_detection()
-        vis_util.visualize_boxes_and_labels_on_image_array(
-            self.image,
-            np.squeeze(self.actual_boxes),
-            np.squeeze(self.actual_classes).astype(np.int32),
-            np.squeeze(self.actual_scores),
-            self.category_index,
-            use_normalized_coordinates=True,
-            line_thickness=8,
-            min_score_thresh=0.60)
+        try:
+            self.get_response()
+            self.get_detection()
+            vis_util.visualize_boxes_and_labels_on_image_array(
+                self.image,
+                np.squeeze(self.actual_boxes),
+                np.squeeze(self.actual_classes).astype(np.int32),
+                np.squeeze(self.actual_scores),
+                self.category_index,
+                use_normalized_coordinates=True,
+                line_thickness=8,
+                min_score_thresh=0.60)
 
-        fig, ax = plt.subplots(1,1, figsize=(20,20))
-        plt.figure(figsize = (20,20))
-        ax.imshow(self.image)
-        plt.show()
-        
-        print("OCR Output: ")
-        for text in self.df_ocr_texts:
-            print(text + "\n")
+            fig, ax = plt.subplots(1,1, figsize=(20,20))
+            plt.figure(figsize = (20,20))
+            ax.imshow(self.image)
+            plt.show()
+
+            print("OCR Output: ")
+            for text in self.df_ocr_texts:
+                print(text + "\n")
+        except:
+            pass
